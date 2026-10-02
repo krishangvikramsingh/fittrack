@@ -1,6 +1,6 @@
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_timezone/flutter_timezone.dart';
-import 'package:timezone/data/latest.dart' as tz_data;
+import 'package:timezone/data/latest_all.dart' as tz_data;
 import 'package:timezone/timezone.dart' as tz;
 
 import '../utils/app_exception.dart';
@@ -14,6 +14,14 @@ import '../utils/constants.dart';
 /// `flutter_timezone`) rather than guessing from the UTC offset, so a daily
 /// reminder set for e.g. 6 PM keeps firing at 6 PM local time even across a
 /// DST change.
+///
+/// Uses `timezone`'s `latest_all` data set (not `latest`): Android's
+/// `TimeZone.getDefault().getID()` can return legacy zone names (e.g.
+/// "Asia/Calcutta" instead of "Asia/Kolkata") that only `latest_all`
+/// includes. With the smaller set, `tz.getLocation()` throws, which used to
+/// get swallowed by the caller's try/catch, silently leaving `tz.local` on
+/// its UTC default and firing every reminder shifted by the device's UTC
+/// offset instead of at the configured local time.
 class NotificationService {
   final _plugin = FlutterLocalNotificationsPlugin();
   bool _initialized = false;
