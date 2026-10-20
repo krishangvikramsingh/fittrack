@@ -142,5 +142,14 @@ to go further — a natural "future scope" list for a viva:
 
 ## Screenshots
 
-_Add screenshots of the onboarding flow, dashboard, workout logging, history,
-progress charts and achievements screens here before submission._
+| Onboarding | BMI result | Dashboard |
+|---|---|---|
+| ![Onboarding welcome](docs/screenshots/01_onboarding_welcome.png) | ![BMI result](docs/screenshots/02_onboarding_bmi.png) | ![Dashboard](docs/screenshots/03_dashboard.png) |
+
+| History | Goals | Achievements |
+|---|---|---|
+| ![History](docs/screenshots/04_history.png) | ![Goals](docs/screenshots/05_goals.png) | ![Achievements](docs/screenshots/06_achievements.png) |
+
+| Settings |
+|---|
+| ![Settings](docs/screenshots/07_settings.png) |
